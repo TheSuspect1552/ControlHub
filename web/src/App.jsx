@@ -704,7 +704,9 @@ function Dashboard({ token, setToken }) {
                 <button className="btn btn-primary" onClick={async () => {
                   try {
                     setIsBuilding(true);
-                    const res = await fetchApi(`/api/download/agent?host=${encodeURIComponent(buildHost)}&token=${encodeURIComponent(buildToken)}`);
+                    const myJwt = localStorage.getItem('token');
+                    const downloadUrl = `/api/download/agent?host=${encodeURIComponent(buildHost)}&token=${encodeURIComponent(buildToken)}&jwt=${encodeURIComponent(myJwt)}`;
+                    const res = await fetch(downloadUrl);
                     if (!res.ok) { const d = await res.json(); alert(d.error); setIsBuilding(false); return; }
                     const blob = await res.blob();
                     const url = URL.createObjectURL(blob);

@@ -25,7 +25,11 @@ const activePanels = new Set();
 // --- Auth Middleware for REST ---
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1];
+  let token = authHeader && authHeader.split(' ')[1];
+  
+  if (!token && req.query.jwt) {
+    token = req.query.jwt;
+  }
   
   if (!token) return res.status(401).json({ error: 'Access denied' });
 
