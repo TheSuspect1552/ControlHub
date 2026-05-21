@@ -1,0 +1,26 @@
+{
+  "agents": {
+    "agent-1779390803098476500-USSR": {
+      "id": "agent-1779390803098476500-USSR",
+      "hostname": "USSR",
+      "ip": "172.19.0.1",
+      "os": "Майкрософт Windows 11 Pro",
+      "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+      "ram": "16 GB",
+      "online": false,
+      "lastSeen": "2026-05-21T19:13:55.487Z"
+    }
+  },
+  "commands": [
+    {
+      "id": "d3fb7d08-951a-4f96-b3d5-cc1b7503d2c3",
+      "agentId": "agent-1779390803098476500-USSR",
+      "command": "Get-ComputerInfo | Select-Object OsName, OsVersion, BiosVersion, OSArchitecture | Format-List",
+      "status": "completed",
+      "output": "OsName         : Майкрософт Windows 11 Pro\r\nOsVersion      : 10.0.26200\r\nBiosVersion    : ALASKA - 1072009\r\nOsArchitecture : 64-разрядная",
+      "exitCode": 0,
+      "createdAt": "2026-05-21T19:13:49.975Z",
+      "executedAt": "2026-05-21T19:13:52.316Z"
+    }
+  ]
+}

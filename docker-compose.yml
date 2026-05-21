@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  control-hub:
+    build: .
+    container_name: control-hub
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8000}:8000"
+    volumes:
+      - control-hub-data:/app/data
+    environment:
+      - PORT=8000
+      - AGENT_TOKEN=${AGENT_TOKEN}
+      - ADMIN_USER=${ADMIN_USER}
+      - ADMIN_PASS=${ADMIN_PASS}
+
+volumes:
+  control-hub-data:
