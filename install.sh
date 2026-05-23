@@ -43,11 +43,7 @@ echo ""
 echo "Starting Docker containers..."
 echo "This might take a few minutes as it compiles the Go and Node.js environments."
 
-if docker compose version &> /dev/null; then
-    docker compose up -d --build
-else
-    docker-compose up -d --build
-fi
+docker-compose up -d --build
 
 echo ""
 echo "=========================================="
